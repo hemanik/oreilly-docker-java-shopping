@@ -31,6 +31,22 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+          <dependency>
+            <groupId>org.jboss.arquillian</groupId>
+            <artifactId>arquillian-bom</artifactId>
+            <version>1.1.13.Final</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
+
+          <dependency>
+            <groupId>org.arquillian.universe</groupId>
+            <artifactId>arquillian-cube-kubernetes</artifactId>
+            <version>1.1.13.7</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -57,6 +73,37 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+      <dependency>
+        <groupId>org.jboss.arquillian.junit</groupId>
+        <artifactId>arquillian-junit-standalone</artifactId>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.arquillian.cube</groupId>
+        <artifactId>arquillian-cube-requirement</artifactId>
+        <version>1.9.1</version>
+        <scope>test</scope>
+      </dependency>
+      <dependency>
+        <groupId>org.arquillian.cube</groupId>
+        <artifactId>arquillian-cube-kubernetes</artifactId>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>io.fabric8</groupId>
+        <artifactId>kubernetes-assertions</artifactId>
+        <version>2.2.101</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
+      </dependency>
     </dependencies>
 
     <build>
@@ -65,6 +112,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
         </plugins>
     </build>
 </project>
